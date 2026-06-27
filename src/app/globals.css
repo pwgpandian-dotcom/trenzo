@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  /* Core palette */
+  --bg: #F8F7FF;
+  --surf: #FFFFFF;
+  --brand: #5B4FCF;
+  --brand-dark: #3D31A0;
+  --brand-light: #EEF0FF;
+  --accent: #FF5C5C;
+  --accent-light: #FF8080;
+  --text-primary: #0F0A2A;
+  --text-secondary: #64607A;
+  --text-muted: #9E9BB5;
+  --border: #ECEAF7;
+
+  /* Aliases for backward compat with existing pages */
+  --ink: #0F0A2A;
+  --ink2: #64607A;
+  --muted: #9E9BB5;
+  --line: #ECEAF7;
+  --i: #5B4FCF;
+  --id: #3D31A0;
+  --il: #7B71DC;
+  --ig: linear-gradient(135deg,#3D31A0,#5B4FCF);
+  --is: #EEF0FF;
+  --r: #FF5C5C;
+  --rl: #FF8080;
+  --rg: linear-gradient(135deg,#FF5C5C,#FF8080);
+  --rs: #FFF0F0;
+  --bg2: #F8F7FF;
+
+  /* Category colours */
+  --fashion: #EC4899; --fs: #FDF0F8;
+  --electro: #0EA5E9; --es: #EFF9FF;
+  --grocery: #22C55E; --gs: #EDFBF1;
+  --home-c:  #F59E0B; --hs: #FFFBEB;
+  --beauty:  #A855F7; --bs: #F9F0FF;
+  --craft:   #F97316; --cs: #FFF4EC;
+
+  /* Semantic */
+  --green: #10B981; --grs: #ECFDF5;
+  --gold:  #FBBF24;
+  --red:   #EF4444; --rds: #FEF2F2;
+
+  /* Shadows */
+  --sh1:  0 2px 12px rgba(91,79,207,.06);
+  --sh2:  0 4px 20px rgba(91,79,207,.10);
+  --sh3:  0 8px 32px rgba(91,79,207,.16);
+  --shr:  0 6px 20px rgba(255,92,92,.30);
+  --shi:  0 6px 20px rgba(91,79,207,.28);
+  --shadow-card: 0 2px 12px rgba(0,0,0,.06);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+button { cursor: pointer; border: none; font-family: inherit; transition: transform .12s ease, opacity .12s ease; }
+button:active { transform: scale(0.97); }
+input, textarea, select { font-family: inherit; outline: none; }
+
+@keyframes bounceIn {
+  0%   { transform: scale(0); opacity: 0; }
+  60%  { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: calc(400px + 100%) 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #eceaf7 25%, #f4f2ff 50%, #eceaf7 75%);
+  background-size: 400px 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 999px; }
