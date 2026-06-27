@@ -5,6 +5,7 @@ export const dynamic = 'force-dynamic'
 import { Toaster } from 'react-hot-toast'
 import { AuthProvider } from '@/context/AuthContext'
 import { CartProvider } from '@/context/CartContext'
+import ServiceWorker from '@/components/ServiceWorker'
 import './globals.css'
 
 const jakarta = Plus_Jakarta_Sans({
@@ -16,8 +17,15 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: 'TRENZO — Trending deals · Local sellers',
   description: "Tamil Nadu's trending marketplace",
-  manifest: '/manifest.json',
-  appleWebApp: { capable: true, statusBarStyle: 'default', title: 'TRENZO' },
+  manifest: '/manifest.webmanifest',
+  appleWebApp: { capable: true, statusBarStyle: 'black-translucent', title: 'TRENZO' },
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [{ url: '/icons/apple-icon-180.png', sizes: '180x180' }],
+  },
 }
 
 export const viewport: Viewport = {
@@ -31,6 +39,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={jakarta.className}>
       <body>
+        <ServiceWorker />
         <AuthProvider>
           <CartProvider>
             {children}
